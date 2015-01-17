@@ -1,0 +1,25 @@
+<ion-view hide-nav-bar="true">
+
+    <ion-header-bar class="bar bar-header bar-energized  item-input-inset">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        <h1 class="title">Coffee Shops</h1>
+        <button ng-click="refresh()" class="button button-icon icon  ion-ios7-refresh-empty"></button>
+    </ion-header-bar>
+
+    <ion-content>
+
+        <ion-list ng-show="showingListings">
+            <ion-item ng-repeat="item in listings" href="#/app/details/{{item.listingId}}">
+                <div>{{item.businessName}}</div>
+                <div>{{item.distance}} miles</div>
+                <div>{{item.street}} {{item.city}}</div>
+
+            </ion-item>
+
+            <ion-infinite-scroll ng-if="canShowMore"
+                    on-infinite="loadMore()"
+                    distance="10%">
+            </ion-infinite-scroll>
+        </ion-list>
+    </ion-content>
+</ion-view>

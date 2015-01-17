@@ -1,0 +1,19 @@
+<ion-view title="Settings">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <ion-list>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Search Radius
+                </div>
+                <select ng-model="searchRadiusInMiles"
+                        ng-change="onChange('searchRadiusInMiles', searchRadiusInMiles)"
+                        ng-options="range.name for range in nearbyRange track by range.value">
+                </select>
+            </label>
+        </ion-list>
+    </ion-content>
+</ion-view>

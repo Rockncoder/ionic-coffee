@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <script src="lib/ng-cordova.min.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByO9uGwtV818facEEIggHntWui7A1s6mQ"></script>
+    <script src="map/ng-map.min.js"></script>
+
+
+    <!-- your app's js -->
+    <script src="system/app.js"></script>
+    <script src="system/constants.js"></script>
+    <script src="system/routes.js"></script>
+    <script src="system/run.js"></script>
+    <script src="system/location-service.js"></script>
+
+    <script src="js/menu-controller.js"></script>
+    <script src="listings/listings-service.js"></script>
+    <script src="listings/listings-controller.js"></script>
+    <script src="map/map-controller.js"></script>
+    <script src="map/map-service.js"></script>
+    <script src="details/details-controller.js"></script>
+
+    <script src="settings/settings-controller.js"></script>
+
+  </head>
+
+  <body ng-app="coffee">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>
