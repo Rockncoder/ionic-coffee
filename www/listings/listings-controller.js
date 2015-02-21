@@ -27,6 +27,8 @@
                     LocationService.init();
                     LocationService.getCurrentPosition().then(function (position) {
                         init();
+                $scope.$broadcast('scroll.refreshComplete');
+        
                     });
                 };
 
