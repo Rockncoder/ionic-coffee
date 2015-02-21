@@ -27,9 +27,11 @@
                     LocationService.init();
                     LocationService.getCurrentPosition().then(function (position) {
                         init();
-                $scope.$broadcast('scroll.refreshComplete');
-        
-                    });
+                    })
+                        .finally(function () {
+                            // Stop the ion-refresher from spinning
+                            $scope.$broadcast('scroll.refreshComplete');
+                        })
                 };
 
                 $scope.loadMore = function () {
