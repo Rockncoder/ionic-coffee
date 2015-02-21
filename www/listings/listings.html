@@ -1,4 +1,3 @@
-
 <ion-view hide-nav-bar="true">
 <ion-header-bar class="bar bar-header bar-energized  item-input-inset">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
@@ -7,7 +6,8 @@
     </ion-header-bar>
 
     <ion-content>
-
+        <ion-refresher on-refresh="refresh()"></ion-refresher>
+        
         <ion-list ng-show="showingListings">
             <ion-item ng-repeat="item in listings" href="#/app/details/{{item.listingId}}">
                 <div>{{item.businessName}}</div>
