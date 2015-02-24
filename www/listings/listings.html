@@ -1,13 +1,13 @@
 <ion-view hide-nav-bar="true">
-
-    <ion-header-bar class="bar bar-header bar-energized  item-input-inset">
+<ion-header-bar class="bar bar-header bar-energized  item-input-inset">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
         <h1 class="title">Coffee Shops</h1>
         <button ng-click="refresh()" class="button button-icon icon  ion-ios7-refresh-empty"></button>
     </ion-header-bar>
 
     <ion-content>
-
+        <ion-refresher  pulling-text="Pull to refresh..." on-refresh="refresh()"></ion-refresher>
+        
         <ion-list ng-show="showingListings">
             <ion-item ng-repeat="item in listings" href="#/app/details/{{item.listingId}}">
                 <div>{{item.businessName}}</div>
