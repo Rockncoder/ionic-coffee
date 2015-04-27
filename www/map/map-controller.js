@@ -6,22 +6,45 @@
             function ($scope, MapService, LocationService, ListingsService) {
 //            var locations = MapService.getAll();
                 var locations = [],
-                    position = {};
+                    position = {},
+                    map = null;
+
+                function updateMap(){
+                    if(map){
+                        LocationService.getCurrentPosition().then(function (position) {
+                            console.log("Got a fresh position: " + JSON.stringify(position.coords));
+                            var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  //                          map.setCenter(latLng);
+
+                            ListingsService.getCached().then(function (list) {
+                                var bounds = MapService.drawMarkers(map, list);
+//                                map.fitBounds(bounds);
+                                map.setCenter(latLng);
+                            });
+                        });
+                    }
+                }
 
                 console.log("waiting for mapInit");
 
-                $scope.$on('mapInitialized', function (event, map) {
+                $scope.$on('mapInitialized', function (event, xMap) {
+                    map = xMap;
+                    updateMap();
 
-                    LocationService.getCurrentPosition().then(function (position) {
-                        console.log("Got a fresh position: " + JSON.stringify(position.coords));
-                        var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                        map.setCenter(latLng);
-
-                        ListingsService.getCached().then(function (list) {
-                            var bounds = MapService.drawMarkers(map, list);
-                            map.fitBounds(bounds);
-                        });
-                    });
+                    //LocationService.getCurrentPosition().then(function (position) {
+                    //    console.log("Got a fresh position: " + JSON.stringify(position.coords));
+                    //    var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                    //    map.setCenter(latLng);
+                    //
+                    //    ListingsService.getCached().then(function (list) {
+                    //        var bounds = MapService.drawMarkers(map, list);
+                    //        map.fitBounds(bounds);
+                    //    });
+                    //});
                 });
+
+                $scope.refresh = function () {
+                    updateMap();
+                };
             }]);
 }());

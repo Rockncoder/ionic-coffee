@@ -24,7 +24,6 @@
                     $scope.listings = [];
                     currentPage = 0;
 
-                    LocationService.init();
                     LocationService.getCurrentPosition().then(function (position) {
                         init();
                     })
@@ -37,9 +36,9 @@
                 $scope.loadMore = function () {
                     ListingsService.getListings(currentPage).then(function (listings) {
                         console.log("Listings: " + listings.length);
-                        if(listings.length === 0){
+                        if (listings.length === 0) {
                             $scope.canShowMore = false;
-                        }else {
+                        } else {
                             $scope.listings = $scope.listings.concat(listings);
                             currentPage++;
                         }

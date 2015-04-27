@@ -9,7 +9,7 @@
                 $scope.id = $stateParams.id;
                 $scope.biz = {};
                 console.log("DetailsController");
-                LocationService.pauseUpdates();
+                //LocationService.pauseUpdates();
 
                 $scope.$on('mapInitialized', function (event, map) {
                     myMap = map;

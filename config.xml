@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.tekadept.coffee" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.tekadept.coffee"
+        version="0.0.1"
+        xmlns="http://www.w3.org/ns/widgets"
+        xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>coffee</name>
   <description>
         An Ionic Framework tutorial app by the rockncoder of TekAdept
     </description>
-  <author email="support@tekadept.com" href="http://tekadept.com/">
+  <author email="rockncoder@tekadept.com" href="http://tekadept.com/">
         The TekAdept Team
     </author>
   <content src="index.html"/>

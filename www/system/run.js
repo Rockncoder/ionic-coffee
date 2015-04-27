@@ -5,8 +5,8 @@
         .run(['$ionicPlatform', 'ListingsService', 'LocationService',
             function ($ionicPlatform, ListingsService, LocationService) {
                 $ionicPlatform.ready(function () {
+                    LocationService.init();
                     if (window.StatusBar) {
-                        // org.apache.cordova.statusbar required
                         StatusBar.styleDefault();
                     }
                 });
